@@ -11,7 +11,7 @@ export default function Experience() {
     {
       title: "QA Engineer",
       company: "Ablaze Labs",
-      period: "2024 – Present",
+      period: "2025 – Present",
       current: true,
       description: "Test digital products and automation systems, support integration of AI and automation features.",
       responsibilities: [
@@ -26,7 +26,7 @@ export default function Experience() {
     {
       title: "Quality Assurance Engineer",
       company: "StartupAgile.ai",
-      period: "2024 – Present (Part-time)",
+      period: "2024 – 2025",
       current: true,
       description: "Lead QA processes for AI automation products in a fast-paced startup environment.",
       responsibilities: [
@@ -40,7 +40,7 @@ export default function Experience() {
     {
       title: "QA & System Support",
       company: "Perago Information Systems",
-      period: "2023 – 2024",
+      period: "2022 – 2024",
       current: false,
       description: "Performed QA testing for enterprise platforms and provided comprehensive system support.",
       responsibilities: [
