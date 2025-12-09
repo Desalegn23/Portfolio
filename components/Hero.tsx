@@ -125,7 +125,7 @@ export default function Hero() {
             <h1 className="text-5xl font-bold text-gray-900 mb-4">
               <span className="block">Desalegn Mamo</span>
               <span className="block text-3xl text-blue-600 mt-2">
-                AI & Automation Engineer in Ethiopia
+                AI & Automation Engineer
               </span>
             </h1>
             <div className="text-2xl text-gray-700 mb-6 font-medium h-16">
