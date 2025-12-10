@@ -1,38 +1,13 @@
 "use client"
 
-import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { Input } from "./ui/input"
-import { Textarea } from "./ui/textarea"
-import { Button } from "./ui/button"
-import { HiMail, HiPhone, HiLocationMarker, HiCheckCircle } from "react-icons/hi"
+import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi"
 import { FaLinkedin, FaGithub } from "react-icons/fa"
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "Job Opportunity",
-    message: "",
-  })
-  const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", subject: "Job Opportunity", message: "" })
-    }, 3000)
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+  // TODO: Replace this URL with your actual Google Form embed URL
+  // After creating your Google Form, click Send > Embed (<>) and copy the src URL
+  const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLScY3HojDC-wXc9dmxtelrzkBDhK9_fZZMFVdxAcFuB6F9sznQ/viewform?embedded=true"
 
   const contactInfo = [
     {
@@ -125,88 +100,26 @@ export default function Contact() {
             </CardContent>
           </Card>
 
-          {/* Contact Form */}
+          {/* Google Form Embed */}
           <Card className="hover:shadow-xl transition-shadow duration-300">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
             </CardHeader>
-            <CardContent>
-              {isSubmitted ? (
-                <div className="flex flex-col items-center justify-center py-12">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                    <HiCheckCircle className="w-10 h-10 text-green-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
-                  <p className="text-gray-600 text-center">
-                    Thank you for reaching out. I'll get back to you soon.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                      Subject
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      className="flex h-10 w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-                      required
-                    >
-                      <option>Job Opportunity</option>
-                      <option>Project Collaboration</option>
-                      <option>Consulting Request</option>
-                      <option>General Inquiry</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Tell me about your project or opportunity..."
-                      required
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              )}
+            <CardContent className="p-0">
+              <div className="w-full h-[600px] overflow-hidden rounded-b-lg">
+                <iframe
+                  src={GOOGLE_FORM_URL}
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight={0}
+                  marginWidth={0}
+                  className="border-0"
+                  title="Contact Form"
+                >
+                  Loading…
+                </iframe>
+              </div>
             </CardContent>
           </Card>
         </div>

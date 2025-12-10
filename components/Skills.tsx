@@ -179,35 +179,72 @@ export default function Skills() {
             })}
           </div>
 
-          {/* Skills Chart */}
+          {/* Skills Chart - Enhanced */}
           <div className="lg:col-span-1">
-            <Card className="h-full hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <CardTitle className="text-lg">Skill Proficiency</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ResponsiveContainer width="100%" height={300}>
-                  <RadarChart data={chartData}>
-                    <PolarGrid stroke="#e5e7eb" />
-                    <PolarAngleAxis
-                      dataKey="subject"
-                      tick={{ fill: "#6b7280", fontSize: 12 }}
-                    />
-                    <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: "#6b7280" }} />
-                    <Radar
-                      name="Skills"
-                      dataKey="value"
-                      stroke="#2563eb"
-                      fill="#2563eb"
-                      fillOpacity={0.3}
-                      strokeWidth={2}
-                    />
-                  </RadarChart>
-                </ResponsiveContainer>
-                <p className="text-xs text-gray-500 text-center mt-4">
-                  Technical proficiency across key domains
-                </p>
-              </CardContent>
+            <Card className="min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0">
+              {/* Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 opacity-95"></div>
+              
+              {/* Glassmorphism Overlay */}
+              <div className="absolute inset-0 backdrop-blur-sm bg-white/10"></div>
+              
+              {/* Decorative Orbs */}
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-400/30 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+              
+              {/* Glowing Border */}
+              <div className="absolute inset-0 rounded-lg border-2 border-white/20 group-hover:border-white/40 transition-all duration-500"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col">
+                <CardHeader className="pb-4">
+                  <CardTitle className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent drop-shadow-lg">
+                    Skill Proficiency
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1 flex flex-col justify-center px-4 sm:px-6 pb-6">
+                  <div className={`transition-all duration-1000 ${
+                    inView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+                  }`}>
+                    <ResponsiveContainer width="100%" height={350} className="sm:!h-[400px]">
+                      <RadarChart data={chartData} margin={{ top: 20, right: 50, bottom: 20, left: 40 }}>
+                        <defs>
+                          <linearGradient id="radarGradient" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#06b6d4" stopOpacity={0.8}/>
+                            <stop offset="50%" stopColor="#7aa2e2ff" stopOpacity={0.6}/>
+                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.4}/>
+                          </linearGradient>
+                        </defs>
+                        <PolarGrid stroke="rgba(255, 255, 255, 0.3)" strokeWidth={1.5} />
+                        <PolarAngleAxis
+                          dataKey="subject"
+                          tick={{ fill: "#ffffff", fontSize: 12, fontWeight: 600 }}
+                        />
+                        <PolarRadiusAxis 
+                          angle={90} 
+                          domain={[0, 100]} 
+                          tick={{ fill: "rgba(255, 255, 255, 0.8)", fontSize: 10 }}
+                          stroke="rgba(255, 255, 255, 0.3)"
+                        />
+                        <Radar
+                          name="Skills"
+                          dataKey="value"
+                          stroke="#06b6d4"
+                          fill="url(#radarGradient)"
+                          fillOpacity={0.7}
+                          strokeWidth={3}
+                          className="drop-shadow-lg"
+                          animationDuration={1500}
+                          animationBegin={0}
+                        />
+                      </RadarChart>
+                    </ResponsiveContainer>
+                  </div>
+                  <p className="text-xs sm:text-sm text-white/90 text-center mt-4 sm:mt-6 font-medium tracking-wide drop-shadow-md px-2">
+                    Technical proficiency across key domains
+                  </p>
+                </CardContent>
+              </div>
             </Card>
           </div>
         </div>
