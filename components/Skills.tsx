@@ -195,9 +195,17 @@ export default function Skills() {
 
                       <PolarGrid stroke="#e5e7eb" strokeWidth={1} />
                       <PolarAngleAxis
-                        dataKey="label"
-                        tick={{ fill: "#374151", fontSize: 12, fontWeight: 600 }}
-                      />
+  dataKey="subject"
+  tick={(props) => {
+    const { x, y, payload } = props
+    return (
+      <text x={x} y={y} textAnchor="middle" fill="#444" fontSize={12}>
+        {payload.value}
+      </text>
+    )
+  }}
+/>
+
                       <PolarRadiusAxis
                         angle={90}
                         domain={[0, 100]}
