@@ -3,15 +3,19 @@
 import { useState } from "react"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from "recharts"
+import {
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  ResponsiveContainer,
+} from "recharts"
 
 export default function Skills() {
   const [activeFilter, setActiveFilter] = useState("all")
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
-  // -------------------------------------
-  // Skill Categories
-  // -------------------------------------
   const skillCategories = [
     {
       id: "ai",
@@ -64,16 +68,14 @@ export default function Skills() {
     },
   ]
 
-  // -------------------------------------
-  // Updated Proficiency Chart Data
-  // -------------------------------------
+  // UPDATED PROFESSIONAL CHART DATA
   const chartData = [
-    { label: "AI/ML", score: 85 },
-    { label: "Automation", score: 92 },
-    { label: "Programming", score: 78 },
-    { label: "Cloud/DevOps", score: 70 },
-    { label: "Databases", score: 65 },
-    { label: "QA/Testing", score: 88 },
+    { subject: "AI & ML", value: 85 },
+    { subject: "Automation", value: 92 },
+    { subject: "Programming", value: 80 },
+    { subject: "Cloud / DevOps", value: 70 },
+    { subject: "Databases", value: 72 },
+    { subject: "QA & Testing", value: 88 },
   ]
 
   const filters = [
@@ -96,9 +98,10 @@ export default function Skills() {
     return colors[color] || colors.blue
   }
 
-  const filteredCategories = activeFilter === "all"
-    ? skillCategories
-    : skillCategories.filter(cat => cat.id === activeFilter)
+  const filteredCategories =
+    activeFilter === "all"
+      ? skillCategories
+      : skillCategories.filter((cat) => cat.id === activeFilter)
 
   return (
     <section id="skills" className="py-16 bg-gray-50">
@@ -115,8 +118,9 @@ export default function Skills() {
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Comprehensive expertise in **AI automation**, **no-code platforms**, 
-            **Python development**, and **QA engineering** with strong hands-on experience.
+            Comprehensive expertise in <strong>AI automation</strong>,{" "}
+            <strong>no-code platforms</strong>, <strong>Python development</strong>, and{" "}
+            <strong>QA engineering</strong>.
           </p>
         </div>
 
@@ -138,18 +142,18 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* Skills Grid */}
+          {/* Skill Tags */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredCategories.map((category, categoryIndex) => {
+            {filteredCategories.map((category, index) => {
               const colorClasses = getColorClasses(category.color)
+
               return (
                 <div
                   key={category.id}
                   className={`transition-all duration-500 ${
                     inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
-                  style={{ transitionDelay: `${categoryIndex * 100}ms` }}
+                  style={{ transitionDelay: `${index * 120}ms` }}
                 >
                   <Card className="h-full hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
@@ -157,9 +161,9 @@ export default function Skills() {
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill, skillIndex) => (
+                        {category.skills.map((skill, idx) => (
                           <span
-                            key={skillIndex}
+                            key={idx}
                             className={`${colorClasses.bg} ${colorClasses.text} px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${colorClasses.hover} hover:text-white hover:scale-105 cursor-pointer`}
                           >
                             {skill}
@@ -173,65 +177,57 @@ export default function Skills() {
             })}
           </div>
 
-          {/* NEW PROFESSIONAL PROFICIENCY CHART */}
+          {/* UPDATED PROFESSIONAL RADAR CHART */}
           <div className="lg:col-span-1">
-            <Card className="min-h-[500px] bg-white border shadow-sm hover:shadow-lg transition-all duration-500 rounded-xl">
+            <Card className="min-h-[520px] bg-white shadow-lg rounded-xl border border-gray-200">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-gray-800 text-center">
+                <CardTitle className="text-xl text-center font-semibold text-gray-900">
                   Skill Proficiency
                 </CardTitle>
               </CardHeader>
 
-              <CardContent>
-                <div className="relative mt-4 h-[380px]">
+              <CardContent className="pt-4">
+                <div className="w-full h-[380px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <RadarChart data={chartData}>
                       <defs>
-                        <linearGradient id="proSkill" x1="0" x2="0" y1="0" y2="1">
+                        <linearGradient id="proficiencyGradient" x1="0" y1="0" x2="1" y2="1">
                           <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.8} />
-                          <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.4} />
+                          <stop offset="100%" stopColor="#6366f1" stopOpacity={0.4} />
                         </linearGradient>
                       </defs>
 
                       <PolarGrid stroke="#e5e7eb" strokeWidth={1} />
+
                       <PolarAngleAxis
-  dataKey="subject"
-  tick={(props) => {
-    const { x, y, payload } = props
-    return (
-      <text x={x} y={y} textAnchor="middle" fill="#444" fontSize={12}>
-        {payload.value}
-      </text>
-    )
-  }}
-/>
+                        dataKey="subject"
+                        tick={{ fill: "#374151", fontSize: 12, fontWeight: 500 }}
+                      />
 
                       <PolarRadiusAxis
-                        angle={90}
                         domain={[0, 100]}
                         tick={{ fill: "#6b7280", fontSize: 10 }}
-                        axisLine={false}
+                        stroke="#d1d5db"
                       />
 
                       <Radar
-                        dataKey="score"
+                        dataKey="value"
                         stroke="#2563eb"
-                        fill="url(#proSkill)"
-                        fillOpacity={0.7}
-                        strokeWidth={2.5}
-                        animationDuration={1200}
+                        fill="url(#proficiencyGradient)"
+                        fillOpacity={0.65}
+                        strokeWidth={2.2}
+                        animationDuration={1300}
                       />
                     </RadarChart>
                   </ResponsiveContainer>
                 </div>
 
-                <p className="text-xs text-gray-500 text-center mt-3">
+                <p className="text-center text-sm text-gray-500 mt-4">
                   Visual representation of proficiency across technical domains.
                 </p>
               </CardContent>
             </Card>
           </div>
-
         </div>
       </div>
     </section>
