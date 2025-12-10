@@ -9,6 +9,9 @@ export default function Skills() {
   const [activeFilter, setActiveFilter] = useState("all")
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
+  // -------------------------------------
+  // Skill Categories
+  // -------------------------------------
   const skillCategories = [
     {
       id: "ai",
@@ -27,13 +30,7 @@ export default function Skills() {
       id: "nocode",
       title: "No-Code / Low-Code Automation",
       color: "green",
-      skills: [
-        "n8n",
-        "Zapier",
-        "Make.com",
-        "Airtable Automations",
-        "Power Automate",
-      ],
+      skills: ["n8n", "Zapier", "Make.com", "Airtable Automations", "Power Automate"],
     },
     {
       id: "aitools",
@@ -63,22 +60,20 @@ export default function Skills() {
       id: "other",
       title: "Other Supporting Skills",
       color: "red",
-      skills: [
-        "REST APIs",
-        "Webhooks",
-        "Git & GitHub",
-        "Cloud Deployments (Railway, Render)",
-      ],
+      skills: ["REST APIs", "Webhooks", "Git & GitHub", "Cloud Deployments (Railway, Render)"],
     },
   ]
 
+  // -------------------------------------
+  // Updated Proficiency Chart Data
+  // -------------------------------------
   const chartData = [
-    { subject: "AI/ML", value: 85 },
-    { subject: "Automation", value: 90 },
-    { subject: "Programming", value: 80 },
-    { subject: "Cloud/DevOps", value: 75 },
-    { subject: "Databases", value: 70 },
-    { subject: "QA/Testing", value: 85 },
+    { label: "AI/ML", score: 85 },
+    { label: "Automation", score: 92 },
+    { label: "Programming", score: 78 },
+    { label: "Cloud/DevOps", score: 70 },
+    { label: "Databases", score: 65 },
+    { label: "QA/Testing", score: 88 },
   ]
 
   const filters = [
@@ -108,6 +103,7 @@ export default function Skills() {
   return (
     <section id="skills" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <div
           ref={ref}
           className={`text-center mb-12 transition-all duration-700 ${
@@ -119,12 +115,12 @@ export default function Skills() {
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Comprehensive expertise in <strong>AI automation</strong>, <strong>no-code platforms</strong> (n8n, Make.com, Zapier), 
-            <strong>Python development</strong>, and <strong>QA engineering</strong> with proven experience delivering intelligent workflow solutions.
+            Comprehensive expertise in **AI automation**, **no-code platforms**, 
+            **Python development**, and **QA engineering** with strong hands-on experience.
           </p>
         </div>
 
-        {/* Filter Buttons */}
+        {/* Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {filters.map((filter) => (
             <button
@@ -142,6 +138,7 @@ export default function Skills() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
           {/* Skills Grid */}
           <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredCategories.map((category, categoryIndex) => {
@@ -150,9 +147,7 @@ export default function Skills() {
                 <div
                   key={category.id}
                   className={`transition-all duration-500 ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                    inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${categoryIndex * 100}ms` }}
                 >
@@ -165,10 +160,9 @@ export default function Skills() {
                         {category.skills.map((skill, skillIndex) => (
                           <span
                             key={skillIndex}
-                            className={`${colorClasses.bg} ${colorClasses.text} px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${colorClasses.hover} hover:text-white hover:scale-105 cursor-pointer relative overflow-hidden group`}
+                            className={`${colorClasses.bg} ${colorClasses.text} px-3 py-1 rounded-full text-sm font-medium transition-all duration-200 ${colorClasses.hover} hover:text-white hover:scale-105 cursor-pointer`}
                           >
                             {skill}
-                            <span className="absolute inset-0 bg-white opacity-0 group-active:opacity-30 transition-opacity duration-200 rounded-full"></span>
                           </span>
                         ))}
                       </div>
@@ -179,74 +173,57 @@ export default function Skills() {
             })}
           </div>
 
-          {/* Skills Chart - Enhanced */}
+          {/* NEW PROFESSIONAL PROFICIENCY CHART */}
           <div className="lg:col-span-1">
-            <Card className="min-h-[500px] sm:min-h-[550px] lg:min-h-[600px] relative overflow-hidden group hover:shadow-2xl transition-all duration-500 border-0">
-              {/* Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 opacity-95"></div>
-              
-              {/* Glassmorphism Overlay */}
-              <div className="absolute inset-0 backdrop-blur-sm bg-white/10"></div>
-              
-              {/* Decorative Orbs */}
-              <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-400/30 rounded-full blur-3xl animate-pulse"></div>
-              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-400/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-              
-              {/* Glowing Border */}
-              <div className="absolute inset-0 rounded-lg border-2 border-white/20 group-hover:border-white/40 transition-all duration-500"></div>
-              
-              {/* Content */}
-              <div className="relative z-10 h-full flex flex-col">
-                <CardHeader className="pb-4">
-                  <CardTitle className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent drop-shadow-lg">
-                    Skill Proficiency
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-center px-4 sm:px-6 pb-6">
-                  <div className={`transition-all duration-1000 ${
-                    inView ? "opacity-100 scale-100" : "opacity-0 scale-90"
-                  }`}>
-                    <ResponsiveContainer width="100%" height={350} className="sm:!h-[400px]">
-                      <RadarChart data={chartData} margin={{ top: 20, right: 50, bottom: 20, left: 40 }}>
-                        <defs>
-                          <linearGradient id="radarGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#06b6d4" stopOpacity={0.8}/>
-                            <stop offset="50%" stopColor="#7aa2e2ff" stopOpacity={0.6}/>
-                            <stop offset="100%" stopColor="#8b5cf6" stopOpacity={0.4}/>
-                          </linearGradient>
-                        </defs>
-                        <PolarGrid stroke="rgba(255, 255, 255, 0.3)" strokeWidth={1.5} />
-                        <PolarAngleAxis
-                          dataKey="subject"
-                          tick={{ fill: "#ffffff", fontSize: 12, fontWeight: 600 }}
-                        />
-                        <PolarRadiusAxis 
-                          angle={90} 
-                          domain={[0, 100]} 
-                          tick={{ fill: "rgba(255, 255, 255, 0.8)", fontSize: 10 }}
-                          stroke="rgba(255, 255, 255, 0.3)"
-                        />
-                        <Radar
-                          name="Skills"
-                          dataKey="value"
-                          stroke="#06b6d4"
-                          fill="url(#radarGradient)"
-                          fillOpacity={0.7}
-                          strokeWidth={3}
-                          className="drop-shadow-lg"
-                          animationDuration={1500}
-                          animationBegin={0}
-                        />
-                      </RadarChart>
-                    </ResponsiveContainer>
-                  </div>
-                  <p className="text-xs sm:text-sm text-white/90 text-center mt-4 sm:mt-6 font-medium tracking-wide drop-shadow-md px-2">
-                    Technical proficiency across key domains
-                  </p>
-                </CardContent>
-              </div>
+            <Card className="min-h-[500px] bg-white border shadow-sm hover:shadow-lg transition-all duration-500 rounded-xl">
+              <CardHeader>
+                <CardTitle className="text-xl font-semibold text-gray-800 text-center">
+                  Skill Proficiency
+                </CardTitle>
+              </CardHeader>
+
+              <CardContent>
+                <div className="relative mt-4 h-[380px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <RadarChart data={chartData}>
+                      <defs>
+                        <linearGradient id="proSkill" x1="0" x2="0" y1="0" y2="1">
+                          <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.8} />
+                          <stop offset="100%" stopColor="#60a5fa" stopOpacity={0.4} />
+                        </linearGradient>
+                      </defs>
+
+                      <PolarGrid stroke="#e5e7eb" strokeWidth={1} />
+                      <PolarAngleAxis
+                        dataKey="label"
+                        tick={{ fill: "#374151", fontSize: 12, fontWeight: 600 }}
+                      />
+                      <PolarRadiusAxis
+                        angle={90}
+                        domain={[0, 100]}
+                        tick={{ fill: "#6b7280", fontSize: 10 }}
+                        axisLine={false}
+                      />
+
+                      <Radar
+                        dataKey="score"
+                        stroke="#2563eb"
+                        fill="url(#proSkill)"
+                        fillOpacity={0.7}
+                        strokeWidth={2.5}
+                        animationDuration={1200}
+                      />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </div>
+
+                <p className="text-xs text-gray-500 text-center mt-3">
+                  Visual representation of proficiency across technical domains.
+                </p>
+              </CardContent>
             </Card>
           </div>
+
         </div>
       </div>
     </section>
