@@ -26,10 +26,6 @@ export default function Navbar() {
     { href: "#contact", label: "Contact" },
   ]
 
-  const handlePrint = () => {
-    window.print()
-  }
-
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -58,10 +54,14 @@ export default function Navbar() {
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button onClick={handlePrint} variant="outline" className="print:hidden text-gray-600 border-gray-300 hover:bg-gray-50">
+            <a 
+              href="/Desalegn_Mamo_AI_Automation_Engineer_CV.pdf" 
+              download="Desalegn_Mamo_cv.pdf"
+              className="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            >
               <HiDownload className="w-4 h-4 mr-2" />
               CV
-            </Button>
+            </a>
             
             <a
               href="https://upwork.com/freelancers/~01cbccbc9717a61377"
@@ -113,10 +113,14 @@ export default function Navbar() {
                   Hire Me on Upwork
                 </a>
                 
-                <Button onClick={handlePrint} variant="outline" className="w-full print:hidden justify-center">
+                <a 
+                  href="/Desalegn_Mamo_AI_Automation_Engineer_CV.pdf"
+                  download="Desalegn_Mamo_cv.pdf"
+                  className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+                >
                   <HiDownload className="w-4 h-4 mr-2" />
                   Download CV
-                </Button>
+                </a>
               </div>
             </div>
           </div>
