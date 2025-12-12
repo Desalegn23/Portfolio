@@ -47,14 +47,14 @@ export const metadata: Metadata = {
   authors: [{ name: "Desalegn Mamo", url: "https://github.com/Desalegn23" }],
   creator: "Desalegn Mamo",
   publisher: "Desalegn Mamo",
-  metadataBase: new URL('https://desalegn-mamo.ethsyncsolutions.com'),
+  metadataBase: new URL('https://desalegn-mamo.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Desalegn Mamo - AI & Automation Engineer | n8n, Make, Zapier Expert Ethiopia",
     description: "Expert AI & Automation Engineer in Ethiopia specializing in n8n, Make.com, Zapier automation, Python development, and intelligent AI workflows. Professional QA engineer with proven expertise.",
-    url: 'https://desalegn-mamo.ethsyncsolutions.com',
+    url: 'https://desalegn-mamo.vercel.app',
     siteName: 'Desalegn Mamo Portfolio',
     locale: 'en_US',
     type: 'profile',
@@ -101,8 +101,8 @@ const jsonLd = {
   name: 'Desalegn Mamo',
   jobTitle: 'AI & Automation Engineer',
   description: 'Expert AI & Automation Engineer specializing in n8n, Make.com, Zapier, and intelligent workflow automation solutions',
-  url: 'https://desalegn-mamo.ethsyncsolutions.com',
-  image: 'https://desalegn-mamo.ethsyncsolutions.com/profile-photo.jpg',
+  url: 'https://desalegn-mamo.vercel.app',
+  image: 'https://desalegn-mamo.vercel.app/profile-photo.jpg',
   email: 'destamamo123@gmail.com',
   telephone: '+251921755965',
   address: {

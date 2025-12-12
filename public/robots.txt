@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://desalegn-mamo.ethsyncsolutions.com/sitemap.xml
+Sitemap: https://desalegn-mamo.vercel.app/sitemap.xml
 
 # Block AI crawlers (optional - remove if you want AI training)
 User-agent: GPTBot
