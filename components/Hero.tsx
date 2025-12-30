@@ -125,21 +125,21 @@ export default function Hero() {
             <h1 className="text-5xl font-bold text-gray-900 mb-4">
               <span className="block">Desalegn Mamo</span>
               <span className="block text-3xl text-blue-600 mt-2">
-                AI & Automation Engineer
+                Fullstack & AI Automation Engineer
               </span>
             </h1>
             <div className="text-2xl text-gray-700 mb-6 font-medium h-16">
               <TypeAnimation
                 sequence={[
+                  "Fullstack Application Developer",
+                  2000,
                   "n8n Automation Specialist",
                   2000,
-                  "Make.com Expert",
+                  "React & Next.js Expert",
                   2000,
-                  "Zapier Automation Developer",
+                  "Node.js Backend Developer",
                   2000,
-                  "QA Automation Engineer",
-                  2000,
-                  "Python AI Developer",
+                  "AI & Automation Specialist",
                   2000,
                   "No-code Solutions Expert",
                   2000,
@@ -152,8 +152,9 @@ export default function Hero() {
             </div>
 
             <p className="text-lg text-gray-600 mb-6 max-w-2xl">
-              Expert in building intelligent automation workflows using <strong>n8n</strong>, <strong>Make.com</strong>, and <strong>Zapier</strong>. 
-              Specializing in AI-powered automation, Python development, and QA engineering based in <strong>Addis Ababa, Ethiopia</strong>.
+              Expert in building <strong>Fullstack Applications</strong> using <strong>React, Next.js, and Node.js</strong>, 
+              integrated with intelligent automation workflows using <strong>n8n</strong> and <strong>AI</strong> models. 
+              Based in <strong>Addis Ababa, Ethiopia</strong>.
             </p>
 
             {/* Contact Info */}

@@ -18,6 +18,21 @@ export default function Skills() {
 
   const skillCategories = [
     {
+      id: "fullstack",
+      title: "Fullstack Development",
+      color: "indigo",
+      skills: [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL",
+        "TypeScript",
+      ],
+    },
+    {
       id: "ai",
       title: "AI Automation",
       color: "blue",
@@ -71,26 +86,27 @@ export default function Skills() {
 
   // UPDATED PROFESSIONAL CHART DATA
   const chartData = [
+    { subject: "Fullstack", value: 92, fullMark: 100 },
     { subject: "AI & ML", value: 95, fullMark: 100 },
     { subject: "Automation", value: 92, fullMark: 100 },
     { subject: "Programming", value: 85, fullMark: 100 },
-    { subject: "Cloud/DevOps", value: 75, fullMark: 100 },
-    { subject: "Databases", value: 78, fullMark: 100 },
+    { subject: "Databases", value: 88, fullMark: 100 },
     { subject: "QA & Testing", value: 88, fullMark: 100 },
   ]
 
   const filters = [
     { id: "all", label: "All Skills" },
+    { id: "fullstack", label: "Fullstack" },
     { id: "ai", label: "AI & ML" },
     { id: "nocode", label: "Automation" },
     { id: "aitools", label: "AI Tools" },
     { id: "qa", label: "QA & Testing" },
-    { id: "other", label: "Other" },
   ]
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, { bg: string; text: string; hover: string; border: string }> = {
       blue: { bg: "bg-blue-50", text: "text-blue-700", hover: "hover:bg-blue-100", border: "border-blue-200" },
+      indigo: { bg: "bg-indigo-50", text: "text-indigo-700", hover: "hover:bg-indigo-100", border: "border-indigo-200" },
       green: { bg: "bg-emerald-50", text: "text-emerald-700", hover: "hover:bg-emerald-100", border: "border-emerald-200" },
       purple: { bg: "bg-violet-50", text: "text-violet-700", hover: "hover:bg-violet-100", border: "border-violet-200" },
       orange: { bg: "bg-amber-50", text: "text-amber-700", hover: "hover:bg-amber-100", border: "border-amber-200" },
@@ -126,8 +142,8 @@ export default function Skills() {
             Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">Proficiency</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            A diverse skillset spanning <strong>AI automation</strong>, <strong>intelligent agents</strong>, 
-            and <strong>low-code solutions</strong>, backed by robust QA engineering practices.
+            A diverse skillset spanning <strong>Fullstack Development</strong>, <strong>AI automation</strong>, 
+            and <strong>intelligent agents</strong>, backed by robust database management.
           </p>
         </div>
 

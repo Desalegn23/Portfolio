@@ -47,12 +47,11 @@ export default function Summary() {
             <Card>
               <CardContent className="p-8">
                 <p className="text-lg leading-relaxed text-gray-700 mb-6">
-                  Energetic and passionate <strong>AI & Automation Engineer</strong> based in <strong>Addis Ababa, Ethiopia</strong>, 
-                  skilled in developing intelligent automation solutions using code, no-code, and low-code tools. 
-                  Specializes in workflow automation with <strong>n8n</strong>, <strong>Make.com</strong>, and <strong>Zapier</strong>, 
-                  QA automation, AI integration with <strong>OpenAI</strong> and <strong>LangChain</strong>, and building practical 
-                  solutions that streamline operations and reduce manual work. Strong background in testing, system support, 
-                  and building smart automations using <strong>Python</strong>, AI models, and leading automation platforms.
+                  Energetic and passionate <strong>Fullstack & AI Automation Engineer</strong> based in <strong>Addis Ababa, Ethiopia</strong>. 
+                  Experienced in building robust, scalable web applications using <strong>React, Next.js, Node.js, and Express</strong>, 
+                  coupled with advanced database management in <strong>MongoDB, MySQL, and PostgreSQL</strong>. 
+                  Specializes in bridging the gap between fullstack development and intelligent automation with <strong>n8n</strong>, 
+                  <strong>AI models (OpenAI, LangChain)</strong>, and <strong>QA automation</strong> to deliver seamless, end-to-end digital solutions.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

@@ -11,6 +11,18 @@ export default function Projects() {
 
   const projects = [
     {
+      id: 6,
+      category: "fullstack",
+      title: "Task Management SaaS",
+      description: "A comprehensive task management platform with real-time collaboration, team workspaces, and AI-driven task prioritization.",
+      tools: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Clerk"],
+      achievements: [
+        "Implemented real-time updates via WebSockets",
+        "Integrated AI for automated task categorization",
+      ],
+      gradient: "from-cyan-500 to-blue-600",
+    },
+    {
       id: 1,
       category: "ai",
       title: "AI-Powered Automation Workflow",
@@ -74,6 +86,7 @@ export default function Projects() {
 
   const filters = [
     { id: "all", label: "All Projects" },
+    { id: "fullstack", label: "Fullstack Apps" },
     { id: "ai", label: "AI Automation" },
     { id: "workflow", label: "Workflow Optimization" },
     { id: "qa", label: "QA Automation" },
